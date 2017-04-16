@@ -16,7 +16,7 @@ namespace NeverSpace
             x = _x; y = _y; mass = _mass; radius = _radius; speed_x = _speed_x; speed_y = _speed_y;
         }
 
-        public draw()
+        public void draw()
         {
         }
     }

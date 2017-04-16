@@ -11,9 +11,20 @@ namespace NeverSpace
 {
     public partial class MainForm : Form
     {
+        graphic graphics;
         public MainForm()
         {
             InitializeComponent();
+            graphics = new graphic(pictureBoxSpace);
         }
+
+        private void button_simple_start_Click(object sender, EventArgs e)
+        {
+            graphics.reset_view();
+            graphics.draw_circle(50, 50, 10,Color.AliceBlue);
+            graphics.apply_view();
+
+        }
+
     }
 }

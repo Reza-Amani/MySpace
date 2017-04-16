@@ -26,5 +26,19 @@ namespace NeverSpace
 
         }
 
+        private void buttonAddPlanet_Click(object sender, EventArgs e)
+        {
+            NewPlanetForm form = new NewPlanetForm();
+            switch (form.ShowDialog(this))
+            {
+                case DialogResult.OK:
+                    labelOut.Text = form.x.ToString();
+                    break;
+                case DialogResult.Cancel:
+                    break;
+            }
+            form.Dispose();
+        }
+
     }
 }

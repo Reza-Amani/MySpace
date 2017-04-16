@@ -30,6 +30,8 @@
         {
             this.pictureBoxSpace = new System.Windows.Forms.PictureBox();
             this.button_simple_start = new System.Windows.Forms.Button();
+            this.buttonAddPlanet = new System.Windows.Forms.Button();
+            this.labelOut = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +57,37 @@
             this.button_simple_start.UseVisualStyleBackColor = false;
             this.button_simple_start.Click += new System.EventHandler(this.button_simple_start_Click);
             // 
+            // buttonAddPlanet
+            // 
+            this.buttonAddPlanet.BackColor = System.Drawing.Color.White;
+            this.buttonAddPlanet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddPlanet.ForeColor = System.Drawing.Color.Black;
+            this.buttonAddPlanet.Location = new System.Drawing.Point(12, 48);
+            this.buttonAddPlanet.Name = "buttonAddPlanet";
+            this.buttonAddPlanet.Size = new System.Drawing.Size(75, 30);
+            this.buttonAddPlanet.TabIndex = 2;
+            this.buttonAddPlanet.Text = "Add Planet";
+            this.buttonAddPlanet.UseVisualStyleBackColor = false;
+            this.buttonAddPlanet.Click += new System.EventHandler(this.buttonAddPlanet_Click);
+            // 
+            // labelOut
+            // 
+            this.labelOut.AutoSize = true;
+            this.labelOut.ForeColor = System.Drawing.Color.Black;
+            this.labelOut.Location = new System.Drawing.Point(28, 202);
+            this.labelOut.Name = "labelOut";
+            this.labelOut.Size = new System.Drawing.Size(35, 13);
+            this.labelOut.TabIndex = 3;
+            this.labelOut.Text = "label1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(633, 418);
+            this.Controls.Add(this.labelOut);
+            this.Controls.Add(this.buttonAddPlanet);
             this.Controls.Add(this.button_simple_start);
             this.Controls.Add(this.pictureBoxSpace);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -68,6 +95,7 @@
             this.Text = "Space";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -75,6 +103,8 @@
 
         private System.Windows.Forms.PictureBox pictureBoxSpace;
         private System.Windows.Forms.Button button_simple_start;
+        private System.Windows.Forms.Button buttonAddPlanet;
+        private System.Windows.Forms.Label labelOut;
     }
 }
 

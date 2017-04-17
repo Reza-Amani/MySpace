@@ -22,10 +22,27 @@ namespace NeverSpace
         }
         public int x
         {
-            get
-            {
-                return Convert.ToInt16(this.textBoxX.Text);
-            }
+            get { return Convert.ToInt16(this.textBoxX.Text); }
+        }
+        public int y
+        {
+            get { return Convert.ToInt16(this.textBoxY.Text); }
+        }
+        public double mass
+        {
+            get { return Convert.ToDouble(this.textBoxMass.Text); }
+        }
+        public int radius
+        {
+            get { return Convert.ToInt16(this.textBoxRadius.Text); }
+        }
+        public double speed_x
+        {
+            get { return Convert.ToDouble(this.textBoxSpeedX.Text); }
+        }
+        public double speed_y
+        {
+            get { return Convert.ToDouble(this.textBoxSpeedY.Text); }
         }
 
     }

@@ -32,6 +32,8 @@
             this.button_simple_start = new System.Windows.Forms.Button();
             this.buttonAddPlanet = new System.Windows.Forms.Button();
             this.labelOut = new System.Windows.Forms.Label();
+            this.buttonGo = new System.Windows.Forms.Button();
+            this.button1Tick = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,12 +82,40 @@
             this.labelOut.TabIndex = 3;
             this.labelOut.Text = "label1";
             // 
+            // buttonGo
+            // 
+            this.buttonGo.BackColor = System.Drawing.Color.White;
+            this.buttonGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGo.ForeColor = System.Drawing.Color.Black;
+            this.buttonGo.Location = new System.Drawing.Point(12, 124);
+            this.buttonGo.Name = "buttonGo";
+            this.buttonGo.Size = new System.Drawing.Size(75, 30);
+            this.buttonGo.TabIndex = 4;
+            this.buttonGo.Text = "go";
+            this.buttonGo.UseVisualStyleBackColor = false;
+            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
+            // 
+            // button1Tick
+            // 
+            this.button1Tick.BackColor = System.Drawing.Color.White;
+            this.button1Tick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1Tick.ForeColor = System.Drawing.Color.Black;
+            this.button1Tick.Location = new System.Drawing.Point(12, 160);
+            this.button1Tick.Name = "button1Tick";
+            this.button1Tick.Size = new System.Drawing.Size(75, 30);
+            this.button1Tick.TabIndex = 5;
+            this.button1Tick.Text = "1 tick";
+            this.button1Tick.UseVisualStyleBackColor = false;
+            this.button1Tick.Click += new System.EventHandler(this.button1Tick_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(633, 418);
+            this.Controls.Add(this.button1Tick);
+            this.Controls.Add(this.buttonGo);
             this.Controls.Add(this.labelOut);
             this.Controls.Add(this.buttonAddPlanet);
             this.Controls.Add(this.button_simple_start);
@@ -105,6 +135,8 @@
         private System.Windows.Forms.Button button_simple_start;
         private System.Windows.Forms.Button buttonAddPlanet;
         private System.Windows.Forms.Label labelOut;
+        private System.Windows.Forms.Button buttonGo;
+        private System.Windows.Forms.Button button1Tick;
     }
 }
 

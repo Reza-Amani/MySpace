@@ -13,8 +13,6 @@ namespace NeverSpace
         Bitmap btm;
         PictureBox box;
 
-        Rectangle r;
-        Pen p;
         SolidBrush brush = new SolidBrush(Color.AliceBlue);
         public graphic(PictureBox picture_box)
         {

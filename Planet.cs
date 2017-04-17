@@ -7,17 +7,18 @@ namespace NeverSpace
 {
     class Planet
     {
-        int x, y, mass, radius;
-        float speed_x,speed_y;
-        
+        public int radius;
+        public double x, y, speed_x, speed_y, mass;
 
-        public Planet(int _x, int _y, int _mass, int _radius, float _speed_x, float _speed_y)
+
+        public Planet(int _x, int _y, double _mass, int _radius, double _speed_x, double _speed_y)
         {
             x = _x; y = _y; mass = _mass; radius = _radius; speed_x = _speed_x; speed_y = _speed_y;
         }
-
-        public void draw()
+        public void update()
         {
+            x += speed_x;
+            y += speed_y;
         }
     }
 }

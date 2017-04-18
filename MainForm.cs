@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace NeverSpace
 {
@@ -14,6 +15,7 @@ namespace NeverSpace
         graphic graphics;
         List<Planet> planets = new List<Planet>();
 
+        bool TimeToGo = false;
         public MainForm()
         {
             InitializeComponent();
@@ -46,20 +48,30 @@ namespace NeverSpace
 
         private void buttonGo_Click(object sender, EventArgs e)
         {
-
+            TimeToGo = true;
+            Thread thread = new Thread(thread_go);
+            thread.Start();
         }
 
         private void button1Tick_Click(object sender, EventArgs e)
         {
+            TimeToGo = false;
             update_1day(null);
-
+        }
+        private void thread_go()
+        {
+            while (TimeToGo)
+            {
+                Thread.Sleep(100);
+                update_1day(null);
+            }
         }
 
         private void update_1day(object state)
         {
             foreach (Planet planet in planets)
             {
-                planet.update();
+                planet.update(planets);
             }
             graphics.reset_view();
             foreach (Planet planet in planets)
@@ -71,6 +83,11 @@ namespace NeverSpace
 //            if (graphic_onoff)
 //                world.update_graphics();
 //            SetText(world.get_world_info(), world.get_point_info(wform.click_x, wform.click_y), world.get_cell_info());
+        }
+
+        private void buttonPause_Click(object sender, EventArgs e)
+        {
+            TimeToGo = false;
         }
 
     }

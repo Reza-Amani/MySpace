@@ -34,6 +34,7 @@
             this.labelOut = new System.Windows.Forms.Label();
             this.buttonGo = new System.Windows.Forms.Button();
             this.button1Tick = new System.Windows.Forms.Button();
+            this.buttonPause = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             this.pictureBoxSpace.BackColor = System.Drawing.Color.Black;
             this.pictureBoxSpace.Location = new System.Drawing.Point(108, 0);
             this.pictureBoxSpace.Name = "pictureBoxSpace";
-            this.pictureBoxSpace.Size = new System.Drawing.Size(525, 418);
+            this.pictureBoxSpace.Size = new System.Drawing.Size(945, 586);
             this.pictureBoxSpace.TabIndex = 0;
             this.pictureBoxSpace.TabStop = false;
             // 
@@ -76,7 +77,7 @@
             // 
             this.labelOut.AutoSize = true;
             this.labelOut.ForeColor = System.Drawing.Color.Black;
-            this.labelOut.Location = new System.Drawing.Point(28, 202);
+            this.labelOut.Location = new System.Drawing.Point(30, 396);
             this.labelOut.Name = "labelOut";
             this.labelOut.Size = new System.Drawing.Size(35, 13);
             this.labelOut.TabIndex = 3;
@@ -108,12 +109,26 @@
             this.button1Tick.UseVisualStyleBackColor = false;
             this.button1Tick.Click += new System.EventHandler(this.button1Tick_Click);
             // 
+            // buttonPause
+            // 
+            this.buttonPause.BackColor = System.Drawing.Color.White;
+            this.buttonPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPause.ForeColor = System.Drawing.Color.Black;
+            this.buttonPause.Location = new System.Drawing.Point(12, 196);
+            this.buttonPause.Name = "buttonPause";
+            this.buttonPause.Size = new System.Drawing.Size(75, 30);
+            this.buttonPause.TabIndex = 6;
+            this.buttonPause.Text = "pause";
+            this.buttonPause.UseVisualStyleBackColor = false;
+            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(633, 418);
+            this.ClientSize = new System.Drawing.Size(1052, 587);
+            this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.button1Tick);
             this.Controls.Add(this.buttonGo);
             this.Controls.Add(this.labelOut);
@@ -137,6 +152,7 @@
         private System.Windows.Forms.Label labelOut;
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.Button button1Tick;
+        private System.Windows.Forms.Button buttonPause;
     }
 }
 

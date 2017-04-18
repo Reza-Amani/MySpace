@@ -29,7 +29,7 @@ namespace NeverSpace
         public void draw_circle(int _x, int _y, int _radius, Color _color)
         {   //draw a circle given center and radius, without updating the view
             brush.Color = _color;
-            g.FillEllipse(brush, _x - _radius, _y - _radius, _x + _radius, _y + _radius);
+            g.FillEllipse(brush, _x - _radius, _y - _radius, 2* _radius, 2* _radius);
         }
         public void apply_view()
         {   //finalising the draw and showing the result

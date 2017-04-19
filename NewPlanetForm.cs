@@ -22,11 +22,13 @@ namespace NeverSpace
         }
         public double x
         {
-            get { return Globals.scale_xy* Convert.ToInt16(this.textBoxX.Text); }
+            get { return Globals.scale_xy * Convert.ToInt16(this.textBoxX.Text); }
+            set { this.textBoxX.Text = value.ToString(); }
         }
         public double y
         {
             get { return Globals.scale_xy * Convert.ToInt16(this.textBoxY.Text); }
+            set { this.textBoxY.Text = value.ToString(); }
         }
         public double mass
         {
@@ -39,14 +41,17 @@ namespace NeverSpace
         public double speed_x
         {
             get { return Globals.scale_v * Convert.ToDouble(this.textBoxSpeedX.Text); }
+            set { this.textBoxSpeedX.Text = value.ToString(); }
+
         }
         public double speed_y
         {
             get { return Globals.scale_v * Convert.ToDouble(this.textBoxSpeedY.Text); }
+            set { this.textBoxSpeedY.Text = value.ToString(); }
         }
         public bool fix
         {
-            get { return Convert.ToBoolean(this.checkBoxFixed); }
+            get { return Convert.ToBoolean(this.checkBoxFixed.Checked); }
         }
 
     }

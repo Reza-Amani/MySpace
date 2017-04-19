@@ -35,6 +35,7 @@
             this.buttonGo = new System.Windows.Forms.Button();
             this.button1Tick = new System.Windows.Forms.Button();
             this.buttonPause = new System.Windows.Forms.Button();
+            this.buttonPlanetOnSpace = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.pictureBoxSpace.Size = new System.Drawing.Size(945, 586);
             this.pictureBoxSpace.TabIndex = 0;
             this.pictureBoxSpace.TabStop = false;
+            this.pictureBoxSpace.Click += new System.EventHandler(this.pictureBoxSpace_Click);
             // 
             // button_simple_start
             // 
@@ -88,7 +90,7 @@
             this.buttonGo.BackColor = System.Drawing.Color.White;
             this.buttonGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGo.ForeColor = System.Drawing.Color.Black;
-            this.buttonGo.Location = new System.Drawing.Point(12, 124);
+            this.buttonGo.Location = new System.Drawing.Point(12, 159);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(75, 30);
             this.buttonGo.TabIndex = 4;
@@ -101,7 +103,7 @@
             this.button1Tick.BackColor = System.Drawing.Color.White;
             this.button1Tick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1Tick.ForeColor = System.Drawing.Color.Black;
-            this.button1Tick.Location = new System.Drawing.Point(12, 160);
+            this.button1Tick.Location = new System.Drawing.Point(12, 195);
             this.button1Tick.Name = "button1Tick";
             this.button1Tick.Size = new System.Drawing.Size(75, 30);
             this.button1Tick.TabIndex = 5;
@@ -114,7 +116,7 @@
             this.buttonPause.BackColor = System.Drawing.Color.White;
             this.buttonPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPause.ForeColor = System.Drawing.Color.Black;
-            this.buttonPause.Location = new System.Drawing.Point(12, 196);
+            this.buttonPause.Location = new System.Drawing.Point(12, 231);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(75, 30);
             this.buttonPause.TabIndex = 6;
@@ -122,12 +124,26 @@
             this.buttonPause.UseVisualStyleBackColor = false;
             this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
+            // buttonPlanetOnSpace
+            // 
+            this.buttonPlanetOnSpace.BackColor = System.Drawing.Color.White;
+            this.buttonPlanetOnSpace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPlanetOnSpace.ForeColor = System.Drawing.Color.Black;
+            this.buttonPlanetOnSpace.Location = new System.Drawing.Point(12, 84);
+            this.buttonPlanetOnSpace.Name = "buttonPlanetOnSpace";
+            this.buttonPlanetOnSpace.Size = new System.Drawing.Size(75, 37);
+            this.buttonPlanetOnSpace.TabIndex = 7;
+            this.buttonPlanetOnSpace.Text = "Planet on Space";
+            this.buttonPlanetOnSpace.UseVisualStyleBackColor = false;
+            this.buttonPlanetOnSpace.Click += new System.EventHandler(this.buttonPlanetOnSpace_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1052, 587);
+            this.Controls.Add(this.buttonPlanetOnSpace);
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.button1Tick);
             this.Controls.Add(this.buttonGo);
@@ -153,6 +169,7 @@
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.Button button1Tick;
         private System.Windows.Forms.Button buttonPause;
+        private System.Windows.Forms.Button buttonPlanetOnSpace;
     }
 }
 

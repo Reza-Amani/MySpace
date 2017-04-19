@@ -16,6 +16,7 @@ namespace NeverSpace
         List<Planet> planets = new List<Planet>();
 
         bool TimeToGo = false;
+        int clickx1, clickx2, clicky1, clicky2;
         public MainForm()
         {
             InitializeComponent();
@@ -88,6 +89,47 @@ namespace NeverSpace
         private void buttonPause_Click(object sender, EventArgs e)
         {
             TimeToGo = false;
+        }
+
+        private void buttonPlanetOnSpace_Click(object sender, EventArgs e)
+        {
+            clickx1 = 0; clickx2 = 0; clicky1=0; clicky2=0;
+        }
+
+        private void pictureBoxSpace_Click(object sender, EventArgs e)
+        {
+           var mouseEventArgs = e as MouseEventArgs;
+           if (mouseEventArgs != null)
+           {
+               if (clickx1 == 0 && clicky1 == 0)
+               {
+                   clickx1 = mouseEventArgs.X;
+                   clicky1 = mouseEventArgs.Y;
+               }
+               else if (clickx2 == 0 && clicky2 == 0)
+               {
+                   clickx2 = mouseEventArgs.X;
+                   clicky2 = mouseEventArgs.Y;
+
+                   NewPlanetForm form = new NewPlanetForm();
+                   form.x=clickx1;
+                   form.y = clicky1;
+                   form.speed_x = clickx2 - clickx1;
+                   form.speed_y = clicky2 - clicky1;
+                   switch (form.ShowDialog(this))
+                   {
+                       case DialogResult.OK:
+                           Planet new_planet = new Planet(form.x, form.y, form.mass, form.radius, form.speed_x, form.speed_y, form.fix);
+                           planets.Add(new_planet);
+                           labelOut.Text = form.x.ToString();
+                           break;
+                       case DialogResult.Cancel:
+                           break;
+                   }
+                   form.Dispose();
+
+               }
+           }
         }
 
     }

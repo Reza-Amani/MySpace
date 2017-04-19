@@ -20,17 +20,17 @@ namespace NeverSpace
         {
 
         }
-        public int x
+        public double x
         {
-            get { return Convert.ToInt16(this.textBoxX.Text); }
+            get { return Globals.scale_xy* Convert.ToInt16(this.textBoxX.Text); }
         }
-        public int y
+        public double y
         {
-            get { return Convert.ToInt16(this.textBoxY.Text); }
+            get { return Globals.scale_xy * Convert.ToInt16(this.textBoxY.Text); }
         }
         public double mass
         {
-            get { return Convert.ToDouble(this.textBoxMass.Text); }
+            get { return Globals.scale_mass* Convert.ToDouble(this.textBoxMass.Text); }
         }
         public int radius
         {
@@ -38,11 +38,15 @@ namespace NeverSpace
         }
         public double speed_x
         {
-            get { return Convert.ToDouble(this.textBoxSpeedX.Text); }
+            get { return Globals.scale_v * Convert.ToDouble(this.textBoxSpeedX.Text); }
         }
         public double speed_y
         {
-            get { return Convert.ToDouble(this.textBoxSpeedY.Text); }
+            get { return Globals.scale_v * Convert.ToDouble(this.textBoxSpeedY.Text); }
+        }
+        public bool fix
+        {
+            get { return Convert.ToBoolean(this.checkBoxFixed); }
         }
 
     }

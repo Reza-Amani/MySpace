@@ -42,6 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.checkBoxFixed = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonOk
@@ -50,7 +51,7 @@
             this.buttonOk.Location = new System.Drawing.Point(64, 190);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
-            this.buttonOk.TabIndex = 7;
+            this.buttonOk.TabIndex = 8;
             this.buttonOk.Text = "Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
@@ -167,11 +168,22 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "y speed";
             // 
+            // checkBoxFixed
+            // 
+            this.checkBoxFixed.AutoSize = true;
+            this.checkBoxFixed.Location = new System.Drawing.Point(96, 167);
+            this.checkBoxFixed.Name = "checkBoxFixed";
+            this.checkBoxFixed.Size = new System.Drawing.Size(48, 17);
+            this.checkBoxFixed.TabIndex = 7;
+            this.checkBoxFixed.Text = "fixed";
+            this.checkBoxFixed.UseVisualStyleBackColor = true;
+            // 
             // NewPlanetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.checkBoxFixed);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -209,5 +221,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox checkBoxFixed;
     }
 }

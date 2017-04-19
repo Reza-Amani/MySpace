@@ -36,7 +36,7 @@ namespace NeverSpace
             switch (form.ShowDialog(this))
             {
                 case DialogResult.OK:
-                    Planet new_planet = new Planet(form.x, form.y, form.mass, form.radius, form.speed_x, form.speed_y);
+                    Planet new_planet = new Planet(form.x, form.y, form.mass, form.radius, form.speed_x, form.speed_y, form.fix);
                     planets.Add(new_planet);
                     labelOut.Text = form.x.ToString();
                     break;

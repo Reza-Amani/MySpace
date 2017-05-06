@@ -17,6 +17,7 @@ namespace NeverSpace
 
         bool TimeToGo = false;
         int zoom_factor = 1;
+        double tick = Globals.tick_max;
         int clickx1, clickx2, clicky1, clicky2;
         public MainForm()
         {
@@ -64,17 +65,37 @@ namespace NeverSpace
         {
             while (TimeToGo)
             {
-                Thread.Sleep(100);
+                Thread.Sleep((int)(1000*tick));
                 update_1day(null);
             }
         }
 
+        private void adjust_time_base(bool _to_decrease)
+        {
+            if (_to_decrease)
+            {
+                if (tick >= 2 * Globals.tick_min)
+                    tick /= 2;
+            }
+            else
+            {
+                if (tick <= 0.5 * Globals.tick_max)
+                    tick *= 2;
+            }
+        }
         private void update_1day(object state)
         {
+            bool time_critical = false;
+            bool t0_to_update = false;
             foreach (Planet planet in planets)
             {
-                planet.update(planets);
+                planet.update(planets, tick, out time_critical);
+                if (time_critical)
+                    t0_to_update = true;
             }
+            adjust_time_base(t0_to_update);
+       //     labelOut.Text = tick.ToString();
+
             graphics.reset_view();
             foreach (Planet planet in planets)
             {

@@ -9,6 +9,7 @@ namespace NeverSpace
     {
         public int radius;
         public double x, y, speed_x, speed_y, mass;
+        double closest_planet;
         public bool fix;
 
 
@@ -16,12 +17,13 @@ namespace NeverSpace
         {
             x = _x; y = _y; mass = _mass; radius = _radius; speed_x = _speed_x; speed_y = _speed_y; fix = _fix;
         }
-        public void update(List<Planet> list)
+        public void update(List<Planet> list, double _tick, out bool _time_critical)
         {
             if (!fix)
             {
                 double dvx = 0, dvy = 0;
                 double fx = 0, fy = 0, rx, ry, r;
+                double nearest_r = Double.MaxValue;
                 foreach (Planet p in list)
                 {
                     if (x == p.x && y == p.y)
@@ -29,16 +31,26 @@ namespace NeverSpace
                     rx = p.x - x;
                     ry = p.y - y;
                     r = System.Math.Sqrt(rx * rx + ry * ry);
+                    if (nearest_r > r)
+                        nearest_r = r;
                     fx += Globals.G * mass * p.mass * rx / (r * r * r); //fx=fcosa   f=gm1m2/r^2 rx=rcosa
                     fy += Globals.G * mass * p.mass * ry / (r * r * r);
                 }
-                dvx = fx * Globals.t0 / mass;
-                dvy = fy * Globals.t0 / mass;
+                dvx = fx * _tick / mass;
+                dvy = fy * _tick / mass;
                 speed_x += dvx;
                 speed_y += dvy;
-                x += speed_x * Globals.t0;
-                y += speed_y * Globals.t0;
+                x += speed_x * _tick;
+                y += speed_y * _tick;
+                if (nearest_r < 0.9 * closest_planet)
+                    _time_critical = true;
+                else
+                    _time_critical = false;
+                closest_planet = nearest_r;
+
             }
+            else
+                _time_critical = false;
         }
     }
 }

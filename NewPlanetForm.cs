@@ -33,10 +33,12 @@ namespace NeverSpace
         public double mass
         {
             get { return Globals.scale_mass* Convert.ToDouble(this.textBoxMass.Text); }
+            set { this.textBoxMass.Text = value.ToString(); }
         }
         public int radius
         {
             get { return Convert.ToInt16(this.textBoxRadius.Text); }
+            set { this.textBoxRadius.Text = value.ToString(); }
         }
         public double speed_x
         {

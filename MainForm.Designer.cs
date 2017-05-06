@@ -36,6 +36,8 @@
             this.button1Tick = new System.Windows.Forms.Button();
             this.buttonPause = new System.Windows.Forms.Button();
             this.buttonPlanetOnSpace = new System.Windows.Forms.Button();
+            this.button_zoomin = new System.Windows.Forms.Button();
+            this.button_zoomout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,12 +139,40 @@
             this.buttonPlanetOnSpace.UseVisualStyleBackColor = false;
             this.buttonPlanetOnSpace.Click += new System.EventHandler(this.buttonPlanetOnSpace_Click);
             // 
+            // button_zoomin
+            // 
+            this.button_zoomin.BackColor = System.Drawing.Color.White;
+            this.button_zoomin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_zoomin.ForeColor = System.Drawing.Color.Black;
+            this.button_zoomin.Location = new System.Drawing.Point(12, 293);
+            this.button_zoomin.Name = "button_zoomin";
+            this.button_zoomin.Size = new System.Drawing.Size(75, 30);
+            this.button_zoomin.TabIndex = 8;
+            this.button_zoomin.Text = "zoom in";
+            this.button_zoomin.UseVisualStyleBackColor = false;
+            this.button_zoomin.Click += new System.EventHandler(this.button_zoomin_Click);
+            // 
+            // button_zoomout
+            // 
+            this.button_zoomout.BackColor = System.Drawing.Color.White;
+            this.button_zoomout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_zoomout.ForeColor = System.Drawing.Color.Black;
+            this.button_zoomout.Location = new System.Drawing.Point(12, 329);
+            this.button_zoomout.Name = "button_zoomout";
+            this.button_zoomout.Size = new System.Drawing.Size(75, 30);
+            this.button_zoomout.TabIndex = 9;
+            this.button_zoomout.Text = "zoom out";
+            this.button_zoomout.UseVisualStyleBackColor = false;
+            this.button_zoomout.Click += new System.EventHandler(this.button_zoomout_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1052, 587);
+            this.Controls.Add(this.button_zoomout);
+            this.Controls.Add(this.button_zoomin);
             this.Controls.Add(this.buttonPlanetOnSpace);
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.button1Tick);
@@ -170,6 +200,8 @@
         private System.Windows.Forms.Button button1Tick;
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.Button buttonPlanetOnSpace;
+        private System.Windows.Forms.Button button_zoomin;
+        private System.Windows.Forms.Button button_zoomout;
     }
 }
 

@@ -22,14 +22,27 @@ namespace NeverSpace
             box.Image = btm;
             Color color = Color.DarkRed;
         }
+        public int get_box_width()
+        {
+            return box.Width;
+        }
+        public int get_box_height()
+        {
+            return box.Height;
+        }
         public void reset_view()
         {   //resetting the view
             g.FillRectangle(Brushes.Black, 0, 0, box.Width, box.Height);
         }
-        public void draw_circle(int _x, int _y, int _radius, Color _color)
+        public void draw_circle(int display_x, int display_y, int _radius, Color _color)
         {   //draw a circle given center and radius, without updating the view
-            brush.Color = _color;
-            g.FillEllipse(brush, _x - _radius, _y - _radius, 2* _radius, 2* _radius);
+            if (_radius < 2)
+                _radius = 2;
+            if (display_x > (0-_radius) && display_x < (box.Width+_radius) && display_y > (0-_radius) && display_y < (box.Height+_radius))
+            {
+                brush.Color = _color;
+                g.FillEllipse(brush, display_x - _radius, display_y - _radius, 2 * _radius, 2 * _radius);
+            }
         }
         public void apply_view()
         {   //finalising the draw and showing the result

@@ -16,6 +16,7 @@ namespace NeverSpace
         List<Planet> planets = new List<Planet>();
 
         bool TimeToGo = false;
+        int zoom_factor = 1;
         int clickx1, clickx2, clicky1, clicky2;
         public MainForm()
         {
@@ -77,7 +78,7 @@ namespace NeverSpace
             graphics.reset_view();
             foreach (Planet planet in planets)
             {
-                graphics.draw_circle((int)planet.x, (int)planet.y, planet.radius, Color.AliceBlue);
+                graphics.draw_circle(graphics.get_box_width()/2 + (int)planet.x / zoom_factor, graphics.get_box_height()/2 + (int)planet.y / zoom_factor, planet.radius/zoom_factor, Color.AliceBlue);
             }
             graphics.apply_view();
             //            world.update_1day();
@@ -103,15 +104,17 @@ namespace NeverSpace
            {
                if (clickx1 == 0 && clicky1 == 0)
                {
-                   clickx1 = mouseEventArgs.X;
-                   clicky1 = mouseEventArgs.Y;
+                   clickx1 = zoom_factor*(mouseEventArgs.X-graphics.get_box_width()/2);
+                   clicky1 = zoom_factor*( mouseEventArgs.Y-graphics.get_box_height()/2);
                }
                else if (clickx2 == 0 && clicky2 == 0)
                {
-                   clickx2 = mouseEventArgs.X;
-                   clicky2 = mouseEventArgs.Y;
+                   clickx2 = zoom_factor * (mouseEventArgs.X - graphics.get_box_width() / 2);
+                   clicky2 = zoom_factor * (mouseEventArgs.Y - graphics.get_box_height() / 2);
 
                    NewPlanetForm form = new NewPlanetForm();
+                   form.mass = 5000;
+                   form.radius = 5;
                    form.x=clickx1;
                    form.y = clicky1;
                    form.speed_x = clickx2 - clickx1;
@@ -122,6 +125,7 @@ namespace NeverSpace
                            Planet new_planet = new Planet(form.x, form.y, form.mass, form.radius, form.speed_x, form.speed_y, form.fix);
                            planets.Add(new_planet);
                            labelOut.Text = form.x.ToString();
+                           update_1day(null);
                            break;
                        case DialogResult.Cancel:
                            break;
@@ -130,6 +134,21 @@ namespace NeverSpace
 
                }
            }
+        }
+
+        private void button_zoomout_Click(object sender, EventArgs e)
+        {
+            zoom_factor *= 2;
+            update_1day(null);
+
+        }
+
+        private void button_zoomin_Click(object sender, EventArgs e)
+        {
+            if (zoom_factor >= 2)
+                zoom_factor /= 2;
+            update_1day(null);
+
         }
 
     }

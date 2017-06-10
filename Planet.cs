@@ -17,9 +17,23 @@ namespace NeverSpace
         {
             x = _x; y = _y; mass = _mass; radius = _radius; speed_x = _speed_x; speed_y = _speed_y; ienergy = _ienergy; fix = _fix;
         }
-        public void split(out Planet _new_planet, int _new_mass_pc, int _new_intenergy_pc, int _new_relative_angle)
+        public void split(out Planet _new_planet, double _new_mass_ratio, double _added_speed_x, double _added_speed_y)
         {
-            _new_planet = new Planet(x+20,y+30,mass*_new_mass_pc/100,10,-100,150,1000,false);
+            double old_momentum_x = mass * speed_x;
+            double old_momentum_y = mass * speed_y;
+            double baby_mass = mass * (1 - _new_mass_ratio);
+            mass *= _new_mass_ratio;
+            speed_x += _added_speed_x;
+            speed_y += _added_speed_y;
+            
+                //baby momentum = old_momentum - new momentum; baby speed = baby momentum/baby mass
+            double baby_momentum_x = old_momentum_x - mass * speed_x;
+            double baby_momentum_y = old_momentum_y - mass * speed_y;
+            double baby_speed_x = baby_momentum_x / baby_mass;
+            double baby_speed_y = baby_momentum_y / baby_mass;
+            double baby_x = (_added_speed_x>0)?x-4*radius:x+4*radius;//TODO: review 4*, also, update the energies due to changed citetic energy
+            double baby_y = (_added_speed_y > 0) ? y - 4 * radius : y + 4 * radius;//TODO: review 4*, also, update the energies due to changed citetic energy
+            _new_planet = new Planet(baby_x, baby_y, baby_mass, 10, baby_speed_x, baby_speed_y, 0, false);
         }
         public void update(List<Planet> list, double _tick, out bool _time_critical)
         {

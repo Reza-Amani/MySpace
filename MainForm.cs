@@ -180,7 +180,7 @@ namespace NeverSpace
         private void buttonTemp_Click(object sender, EventArgs e)
         {
             Planet new_planet;
-            planets[0].split(out new_planet, 50, 50, 0);
+            planets[0].split(out new_planet, 0.5,-100,200);
             planets.Add(new_planet);
         }
 

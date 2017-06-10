@@ -17,6 +17,10 @@ namespace NeverSpace
         {
             x = _x; y = _y; mass = _mass; radius = _radius; speed_x = _speed_x; speed_y = _speed_y; fix = _fix;
         }
+        public void split(out Planet _new_planet, int _new_mass_pc, int _new_intenergy_pc, int _new_relative_angle)
+        {
+            _new_planet = new Planet(x+20,y+30,mass*_new_mass_pc/100,10,10,10,false);
+        }
         public void update(List<Planet> list, double _tick, out bool _time_critical)
         {
             if (!fix)

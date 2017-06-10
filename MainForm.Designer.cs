@@ -38,6 +38,7 @@
             this.buttonPlanetOnSpace = new System.Windows.Forms.Button();
             this.button_zoomin = new System.Windows.Forms.Button();
             this.button_zoomout = new System.Windows.Forms.Button();
+            this.buttonTemp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +82,7 @@
             // 
             this.labelOut.AutoSize = true;
             this.labelOut.ForeColor = System.Drawing.Color.Black;
-            this.labelOut.Location = new System.Drawing.Point(30, 396);
+            this.labelOut.Location = new System.Drawing.Point(30, 501);
             this.labelOut.Name = "labelOut";
             this.labelOut.Size = new System.Drawing.Size(35, 13);
             this.labelOut.TabIndex = 3;
@@ -92,7 +93,7 @@
             this.buttonGo.BackColor = System.Drawing.Color.White;
             this.buttonGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGo.ForeColor = System.Drawing.Color.Black;
-            this.buttonGo.Location = new System.Drawing.Point(12, 159);
+            this.buttonGo.Location = new System.Drawing.Point(12, 264);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(75, 30);
             this.buttonGo.TabIndex = 4;
@@ -105,7 +106,7 @@
             this.button1Tick.BackColor = System.Drawing.Color.White;
             this.button1Tick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1Tick.ForeColor = System.Drawing.Color.Black;
-            this.button1Tick.Location = new System.Drawing.Point(12, 195);
+            this.button1Tick.Location = new System.Drawing.Point(12, 300);
             this.button1Tick.Name = "button1Tick";
             this.button1Tick.Size = new System.Drawing.Size(75, 30);
             this.button1Tick.TabIndex = 5;
@@ -118,7 +119,7 @@
             this.buttonPause.BackColor = System.Drawing.Color.White;
             this.buttonPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPause.ForeColor = System.Drawing.Color.Black;
-            this.buttonPause.Location = new System.Drawing.Point(12, 231);
+            this.buttonPause.Location = new System.Drawing.Point(12, 336);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(75, 30);
             this.buttonPause.TabIndex = 6;
@@ -144,7 +145,7 @@
             this.button_zoomin.BackColor = System.Drawing.Color.White;
             this.button_zoomin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_zoomin.ForeColor = System.Drawing.Color.Black;
-            this.button_zoomin.Location = new System.Drawing.Point(12, 293);
+            this.button_zoomin.Location = new System.Drawing.Point(12, 398);
             this.button_zoomin.Name = "button_zoomin";
             this.button_zoomin.Size = new System.Drawing.Size(75, 30);
             this.button_zoomin.TabIndex = 8;
@@ -157,7 +158,7 @@
             this.button_zoomout.BackColor = System.Drawing.Color.White;
             this.button_zoomout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_zoomout.ForeColor = System.Drawing.Color.Black;
-            this.button_zoomout.Location = new System.Drawing.Point(12, 329);
+            this.button_zoomout.Location = new System.Drawing.Point(12, 434);
             this.button_zoomout.Name = "button_zoomout";
             this.button_zoomout.Size = new System.Drawing.Size(75, 30);
             this.button_zoomout.TabIndex = 9;
@@ -165,12 +166,26 @@
             this.button_zoomout.UseVisualStyleBackColor = false;
             this.button_zoomout.Click += new System.EventHandler(this.button_zoomout_Click);
             // 
+            // buttonTemp
+            // 
+            this.buttonTemp.BackColor = System.Drawing.Color.White;
+            this.buttonTemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTemp.ForeColor = System.Drawing.Color.Black;
+            this.buttonTemp.Location = new System.Drawing.Point(12, 156);
+            this.buttonTemp.Name = "buttonTemp";
+            this.buttonTemp.Size = new System.Drawing.Size(75, 30);
+            this.buttonTemp.TabIndex = 10;
+            this.buttonTemp.Text = "temp";
+            this.buttonTemp.UseVisualStyleBackColor = false;
+            this.buttonTemp.Click += new System.EventHandler(this.buttonTemp_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1052, 587);
+            this.Controls.Add(this.buttonTemp);
             this.Controls.Add(this.button_zoomout);
             this.Controls.Add(this.button_zoomin);
             this.Controls.Add(this.buttonPlanetOnSpace);
@@ -184,6 +199,7 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Name = "MainForm";
             this.Text = "Space";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -202,6 +218,7 @@
         private System.Windows.Forms.Button buttonPlanetOnSpace;
         private System.Windows.Forms.Button button_zoomin;
         private System.Windows.Forms.Button button_zoomout;
+        private System.Windows.Forms.Button buttonTemp;
     }
 }
 

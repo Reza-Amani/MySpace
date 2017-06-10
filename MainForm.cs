@@ -172,5 +172,17 @@ namespace NeverSpace
 
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonTemp_Click(object sender, EventArgs e)
+        {
+            Planet new_planet;
+            planets[0].split(out new_planet, 50, 50, 0);
+            planets.Add(new_planet);
+        }
+
     }
 }

@@ -11,15 +11,15 @@ namespace NeverSpace
         public double x, y, speed_x, speed_y, mass;
         double closest_planet;
         public bool fix;
+        public double ienergy;
 
-
-        public Planet(double _x, double _y, double _mass, int _radius, double _speed_x, double _speed_y, bool _fix)
+        public Planet(double _x, double _y, double _mass, int _radius, double _speed_x, double _speed_y, double _ienergy, bool _fix)
         {
-            x = _x; y = _y; mass = _mass; radius = _radius; speed_x = _speed_x; speed_y = _speed_y; fix = _fix;
+            x = _x; y = _y; mass = _mass; radius = _radius; speed_x = _speed_x; speed_y = _speed_y; ienergy = _ienergy; fix = _fix;
         }
         public void split(out Planet _new_planet, int _new_mass_pc, int _new_intenergy_pc, int _new_relative_angle)
         {
-            _new_planet = new Planet(x+20,y+30,mass*_new_mass_pc/100,10,10,10,false);
+            _new_planet = new Planet(x+20,y+30,mass*_new_mass_pc/100,10,-100,150,1000,false);
         }
         public void update(List<Planet> list, double _tick, out bool _time_critical)
         {

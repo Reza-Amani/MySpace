@@ -55,6 +55,11 @@ namespace NeverSpace
         {
             get { return Convert.ToBoolean(this.checkBoxFixed.Checked); }
         }
+        public double ienergy
+        {
+            get { return Convert.ToDouble(this.textBoxIenergy.Text); }
+            set { this.textBoxIenergy.Text = value.ToString(); }
+        }
 
     }
 }

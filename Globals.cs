@@ -13,6 +13,7 @@ namespace NeverSpace
         public const double scale_mass = 1e13;
         public const double scale_xy = 1;
         public const double scale_v = 1;
+        public const double scale_cubemass_for_radius = 1e-5;
 
     }
 }

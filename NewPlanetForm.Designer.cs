@@ -33,13 +33,11 @@
             this.textBoxX = new System.Windows.Forms.TextBox();
             this.textBoxY = new System.Windows.Forms.TextBox();
             this.textBoxMass = new System.Windows.Forms.TextBox();
-            this.textBoxRadius = new System.Windows.Forms.TextBox();
             this.textBoxSpeedX = new System.Windows.Forms.TextBox();
             this.textBoxSpeedY = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.checkBoxFixed = new System.Windows.Forms.CheckBox();
@@ -92,14 +90,6 @@
             this.textBoxMass.TabIndex = 3;
             this.textBoxMass.Text = "10";
             // 
-            // textBoxRadius
-            // 
-            this.textBoxRadius.Location = new System.Drawing.Point(96, 90);
-            this.textBoxRadius.Name = "textBoxRadius";
-            this.textBoxRadius.Size = new System.Drawing.Size(100, 20);
-            this.textBoxRadius.TabIndex = 4;
-            this.textBoxRadius.Text = "10";
-            // 
             // textBoxSpeedX
             // 
             this.textBoxSpeedX.Location = new System.Drawing.Point(96, 116);
@@ -142,15 +132,6 @@
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "Mass";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 93);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Radius";
             // 
             // label5
             // 
@@ -207,13 +188,11 @@
             this.Controls.Add(this.checkBoxFixed);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxSpeedY);
             this.Controls.Add(this.textBoxSpeedX);
-            this.Controls.Add(this.textBoxRadius);
             this.Controls.Add(this.textBoxMass);
             this.Controls.Add(this.textBoxY);
             this.Controls.Add(this.textBoxX);
@@ -233,13 +212,11 @@
         private System.Windows.Forms.TextBox textBoxX;
         private System.Windows.Forms.TextBox textBoxY;
         private System.Windows.Forms.TextBox textBoxMass;
-        private System.Windows.Forms.TextBox textBoxRadius;
         private System.Windows.Forms.TextBox textBoxSpeedX;
         private System.Windows.Forms.TextBox textBoxSpeedY;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox checkBoxFixed;

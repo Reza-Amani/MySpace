@@ -13,9 +13,10 @@ namespace NeverSpace
         public bool fix;
         public double ienergy;
 
-        public Planet(double _x, double _y, double _mass, int _radius, double _speed_x, double _speed_y, double _ienergy, bool _fix)
+        public Planet(double _x, double _y, double _mass, double _speed_x, double _speed_y, double _ienergy, bool _fix)
         {
-            x = _x; y = _y; mass = _mass; radius = _radius; speed_x = _speed_x; speed_y = _speed_y; ienergy = _ienergy; fix = _fix;
+            x = _x; y = _y; mass = _mass; speed_x = _speed_x; speed_y = _speed_y; ienergy = _ienergy; fix = _fix;
+            radius = calculate_radius();
         }
         public void split(out Planet _new_planet, double _new_mass_ratio, double _added_speed_x, double _added_speed_y)
         {
@@ -25,15 +26,25 @@ namespace NeverSpace
             mass *= _new_mass_ratio;
             speed_x += _added_speed_x;
             speed_y += _added_speed_y;
+            radius = calculate_radius();
             
                 //baby momentum = old_momentum - new momentum; baby speed = baby momentum/baby mass
             double baby_momentum_x = old_momentum_x - mass * speed_x;
             double baby_momentum_y = old_momentum_y - mass * speed_y;
             double baby_speed_x = baby_momentum_x / baby_mass;
             double baby_speed_y = baby_momentum_y / baby_mass;
-            double baby_x = (_added_speed_x>0)?x-4*radius:x+4*radius;//TODO: review 4*, also, update the energies due to changed citetic energy
-            double baby_y = (_added_speed_y > 0) ? y - 4 * radius : y + 4 * radius;//TODO: review 4*, also, update the energies due to changed citetic energy
-            _new_planet = new Planet(baby_x, baby_y, baby_mass, 10, baby_speed_x, baby_speed_y, 0, false);
+            double baby_x = (_added_speed_x>0)?x-20*radius:x+20*radius;//TODO: review 4*, also, update the energies due to changed citetic energy
+            double baby_y = (_added_speed_y > 0) ? y - 020 * radius : y + 20 * radius;//TODO: review 4*, also, update the energies due to changed citetic energy
+            _new_planet = new Planet(baby_x, baby_y, baby_mass, baby_speed_x, baby_speed_y, 0, false);
+        }
+        private int calculate_radius()
+        {
+            double result = Math.Pow(mass, (double)1 / 3) * Globals.scale_cubemass_for_radius;
+            if (result < 1)
+                result = 1;
+            if (result > 100)
+                result = 100;
+            return (int)result;
         }
         public void update(List<Planet> list, double _tick, out bool _time_critical)
         {

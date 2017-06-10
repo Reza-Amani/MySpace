@@ -39,7 +39,7 @@ namespace NeverSpace
             switch (form.ShowDialog(this))
             {
                 case DialogResult.OK:
-                    Planet new_planet = new Planet(form.x, form.y, form.mass, form.radius, form.speed_x, form.speed_y, form.ienergy, form.fix);
+                    Planet new_planet = new Planet(form.x, form.y, form.mass, form.speed_x, form.speed_y, form.ienergy, form.fix);
                     planets.Add(new_planet);
                     labelOut.Text = form.x.ToString();
                     break;
@@ -135,7 +135,6 @@ namespace NeverSpace
 
                    NewPlanetForm form = new NewPlanetForm();
                    form.mass = 5000;
-                   form.radius = 5;
                    form.x=clickx1;
                    form.y = clicky1;
                    form.speed_x = clickx2 - clickx1;
@@ -143,7 +142,7 @@ namespace NeverSpace
                    switch (form.ShowDialog(this))
                    {
                        case DialogResult.OK:
-                           Planet new_planet = new Planet(form.x, form.y, form.mass, form.radius, form.speed_x, form.speed_y, form.ienergy, form.fix);
+                           Planet new_planet = new Planet(form.x, form.y, form.mass, form.speed_x, form.speed_y, form.ienergy, form.fix);
                            planets.Add(new_planet);
                            labelOut.Text = form.x.ToString();
                            update_1day(null);

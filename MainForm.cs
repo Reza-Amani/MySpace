@@ -65,7 +65,7 @@ namespace NeverSpace
         {
             while (TimeToGo)
             {
-                Thread.Sleep((int)(1000*tick));
+                Thread.Sleep((int)(5000*tick)); //TODO: with 1000 a smoth move we have, but craches
                 update_1day(null);
             }
         }
@@ -87,12 +87,19 @@ namespace NeverSpace
         {
             bool time_critical = false;
             bool t0_to_update = false;
+            Planet temp_collisioner;
             foreach (Planet planet in planets)
             {
-                planet.update(planets, tick, out time_critical);
+                planet.update(planets, tick, out time_critical, out temp_collisioner);
+                if (temp_collisioner != null)
+                {
+                    planet.combine(temp_collisioner);
+                    temp_collisioner.mass=0;    //mark it to prevent from being updated, and then be removed
+                }
                 if (time_critical)
                     t0_to_update = true;
             }
+            planets.RemoveAll(p => p.mass == 0);
             adjust_time_base(t0_to_update);
        //     labelOut.Text = tick.ToString();
 

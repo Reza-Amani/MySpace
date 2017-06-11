@@ -18,6 +18,17 @@ namespace NeverSpace
             x = _x; y = _y; mass = _mass; speed_x = _speed_x; speed_y = _speed_y; ienergy = _ienergy; fix = _fix;
             radius = calculate_radius();
         }
+        public void combine(Planet _partner)
+        {
+            double old_momentum_x = mass * speed_x + _partner.mass*_partner.speed_x;
+            double old_momentum_y = mass * speed_y + _partner.mass * _partner.speed_y;
+            mass = mass + _partner.mass;
+            radius = calculate_radius();
+            speed_x = old_momentum_x / mass;
+            speed_y = old_momentum_y / mass;
+
+            //TODO:update the energy
+        }
         public void split(out Planet _new_planet, double _new_mass_ratio, double _added_speed_x, double _added_speed_y)
         {
             double old_momentum_x = mass * speed_x;
@@ -46,9 +57,9 @@ namespace NeverSpace
                 result = 100;
             return (int)result;
         }
-        public void update(List<Planet> list, double _tick, out bool _time_critical)
+        public void update(List<Planet> list, double _tick, out bool _time_critical, out Planet _collisioner)
         {
-            if (!fix)
+            if (!fix && mass!=0)
             {
                 double dvx = 0, dvy = 0;
                 double fx = 0, fy = 0, rx, ry, r;
@@ -60,6 +71,12 @@ namespace NeverSpace
                     rx = p.x - x;
                     ry = p.y - y;
                     r = System.Math.Sqrt(rx * rx + ry * ry);
+                    if (r < radius + p.radius)
+                    {   //a collision! terminate and report
+                        _collisioner = p;
+                        _time_critical = true;
+                        return;
+                    }
                     if (nearest_r > r)
                         nearest_r = r;
                     fx += Globals.G * mass * p.mass * rx / (r * r * r); //fx=fcosa   f=gm1m2/r^2 rx=rcosa
@@ -80,6 +97,7 @@ namespace NeverSpace
             }
             else
                 _time_critical = false;
+            _collisioner = null;
         }
     }
 }

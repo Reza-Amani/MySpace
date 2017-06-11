@@ -35,11 +35,6 @@ namespace NeverSpace
             get { return Globals.scale_mass* Convert.ToDouble(this.textBoxMass.Text); }
             set { this.textBoxMass.Text = value.ToString(); }
         }
-        public int radius
-        {
-            get { return Convert.ToInt16(this.textBoxRadius.Text); }
-            set { this.textBoxRadius.Text = value.ToString(); }
-        }
         public double speed_x
         {
             get { return Globals.scale_v * Convert.ToDouble(this.textBoxSpeedX.Text); }
@@ -54,6 +49,11 @@ namespace NeverSpace
         public bool fix
         {
             get { return Convert.ToBoolean(this.checkBoxFixed.Checked); }
+        }
+        public double ienergy
+        {
+            get { return Convert.ToDouble(this.textBoxIenergy.Text); }
+            set { this.textBoxIenergy.Text = value.ToString(); }
         }
 
     }

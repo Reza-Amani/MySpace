@@ -15,5 +15,21 @@ namespace NeverSpace
         public const double scale_v = 1;
         public const double scale_cubemass_for_radius = 1e-5;
 
+        static Random random_generator = new Random();
+        public static bool get_random_bool()
+        {
+            return (random_generator.Next(0, 2) == 0);
+        }
+        public static int get_random_int_inc(int min, int max)
+        {
+            if (min > max)
+            {   //don't worry if the order is not correct
+                int temp = max;
+                max = min;
+                min = temp;
+            }
+            return random_generator.Next(min, max + 1);
+        }
+
     }
 }

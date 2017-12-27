@@ -186,7 +186,11 @@ namespace NeverSpace
         private void buttonTemp_Click(object sender, EventArgs e)
         {
             Planet new_planet;
-            planets[0].split(out new_planet, 0.5,-100,200);
+            int planet_index = Globals.get_random_int_inc(0, planets.Count - 1);
+            int x_change = Globals.get_random_int_inc(-100 - (int)planets[planet_index].speed_x, 100 + (int)planets[planet_index].speed_x);
+            int y_change = Globals.get_random_int_inc(-100 - (int)planets[planet_index].speed_y, 100 + (int)planets[planet_index].speed_y);
+            double ratio = (double)Globals.get_random_int_inc(1, 9) / 10;
+            planets[planet_index].split(out new_planet, ratio, x_change, y_change);
             planets.Add(new_planet);
         }
 

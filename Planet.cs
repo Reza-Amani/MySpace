@@ -44,8 +44,8 @@ namespace NeverSpace
             double baby_momentum_y = old_momentum_y - mass * speed_y;
             double baby_speed_x = baby_momentum_x / baby_mass;
             double baby_speed_y = baby_momentum_y / baby_mass;
-            double baby_x = (_added_speed_x>0)?x-20*radius:x+20*radius;//TODO: review 4*, also, update the energies due to changed citetic energy
-            double baby_y = (_added_speed_y > 0) ? y - 020 * radius : y + 20 * radius;//TODO: review 4*, also, update the energies due to changed citetic energy
+            double baby_x = (_added_speed_x>0)?x-10*radius:x+10*radius;//TODO: test a multiplier of xspeed, also, update the energies due to changed citetic energy
+            double baby_y = (_added_speed_y > 0) ? y - 10 * radius : y + 10 * radius;
             _new_planet = new Planet(baby_x, baby_y, baby_mass, baby_speed_x, baby_speed_y, 0, false);
         }
         private int calculate_radius()

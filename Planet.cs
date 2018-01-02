@@ -31,6 +31,8 @@ namespace NeverSpace
         }
         public void split(out Planet _new_planet, double _new_mass_ratio, double _added_speed_x, double _added_speed_y)
         {
+            double old_energy = ienergy + Globals.Kenergy * mass * (speed_x * speed_x + speed_y * speed_y);
+ 
             double old_momentum_x = mass * speed_x;
             double old_momentum_y = mass * speed_y;
             double baby_mass = mass * (1 - _new_mass_ratio);
@@ -46,7 +48,12 @@ namespace NeverSpace
             double baby_speed_y = baby_momentum_y / baby_mass;
             double baby_x = (_added_speed_x>0)?x-10*radius:x+10*radius;//TODO: test a multiplier of xspeed, also, update the energies due to changed citetic energy
             double baby_y = (_added_speed_y > 0) ? y - 10 * radius : y + 10 * radius;
-            _new_planet = new Planet(baby_x, baby_y, baby_mass, baby_speed_x, baby_speed_y, 0, false);
+
+            double new_sum_ienergy = old_energy - (Globals.Kenergy * mass * (speed_x * speed_x + speed_y * speed_y) + Globals.Kenergy * baby_mass * (baby_speed_x * baby_speed_x + baby_speed_y * baby_speed_y));
+            double new_ienergy = new_sum_ienergy * mass / (mass + baby_mass);
+            ienergy = new_ienergy;
+            double baby_ienergy = new_sum_ienergy * baby_mass / (mass + baby_mass);
+            _new_planet = new Planet(baby_x, baby_y, baby_mass, baby_speed_x, baby_speed_y, baby_ienergy, false);
         }
         private int calculate_radius()
         {

@@ -192,6 +192,7 @@ namespace NeverSpace
             double ratio = (double)Globals.get_random_int_inc(1, 9) / 10;
             planets[planet_index].split(out new_planet, ratio, x_change, y_change);
             planets.Add(new_planet);
+            labelOut.Text = planets[planet_index].ienergy.ToString() + "  "+ new_planet.ienergy.ToString();
         }
 
     }

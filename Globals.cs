@@ -14,6 +14,7 @@ namespace NeverSpace
         public const double scale_xy = 1;
         public const double scale_v = 1;
         public const double scale_cubemass_for_radius = 1e-5;
+        public const double Kenergy = 1;    //TODO: correct it
 
         static Random random_generator = new Random();
         public static bool get_random_bool()
